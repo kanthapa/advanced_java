@@ -2,12 +2,9 @@ package com.qacart.todo.testcases;
 
 import com.github.javafaker.Faker;
 import com.qacart.todo.base.BaseTest;
-import com.qacart.todo.factory.DriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.qacart.todo.pages.SignupPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 public class UserTest extends BaseTest {
 
@@ -21,15 +18,11 @@ public class UserTest extends BaseTest {
         String password = "Wachtw00rd!";
 
 
-        driver.get("https://todo.qacart.com/signup");
-        driver.findElement(By.cssSelector("[data-testid=first-name]")).sendKeys(voornaam);
-        driver.findElement(By.cssSelector("[data-testid=last-name]")).sendKeys(lastname);
-        driver.findElement(By.cssSelector("[data-testid=email]")).sendKeys(email);
-        driver.findElement(By.cssSelector("[data-testid=password]")).sendKeys(password);
-        driver.findElement(By.cssSelector("[data-testid=confirm-password]")).sendKeys(password);
-        driver.findElement(By.cssSelector("[data-testid=submit]")).click();
+        boolean isWelcomeDisplayed = new SignupPage(driver)
+                .load()
+                .signup(voornaam, lastname, email, password)
+                .isWelcomeDisplayed();
 
-        boolean isWelcomeDisplayed = driver.findElement(By.cssSelector("[data-testid=welcome")).isDisplayed();
         Assert.assertTrue(isWelcomeDisplayed);
 
 
