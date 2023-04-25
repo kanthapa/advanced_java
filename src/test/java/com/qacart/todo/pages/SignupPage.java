@@ -4,7 +4,6 @@ import com.qacart.todo.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class SignupPage extends BasePage {
 
@@ -15,7 +14,6 @@ public class SignupPage extends BasePage {
 
 
     // Elements
-
     @FindBy(css = "[data-testid=first-name]")
     private WebElement firstNameInput;
 
