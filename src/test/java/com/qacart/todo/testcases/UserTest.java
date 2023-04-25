@@ -26,14 +26,6 @@ public class UserTest extends BaseTest {
         Assert.assertTrue(isWelcomeDisplayed);
 
 
-
-
-
-
-
-
-
-
     }
 
 }
